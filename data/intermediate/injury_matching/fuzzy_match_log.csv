@@ -1,0 +1,323 @@
+player,matched_ir_name,fuzzy_score,above_threshold
+josh reynolds,josh reynolds,100.0,True
+desean jackson,desean jackson,100.0,True
+taywan taylor,taywan taylor,100.0,True
+taylor gabriel,taylor price,76.92307692307692,False
+curtis samuel,curtis samuel,100.0,True
+cooper kupp,cooper kupp,100.0,True
+keelan cole,dylan cole,76.19047619047619,False
+jordan reed,jordan reed,100.0,True
+tyler lockett,tyler lockett,100.0,True
+maurice harris,maurice harris,100.0,True
+quincy enunwa,quincy enunwa,100.0,True
+adam humphries,adam humphries,100.0,True
+chris conley,chris conley,100.0,True
+rashard higgins,rashad jennings,66.66666666666667,False
+kendrick bourne,kendrick bourne,100.0,True
+robby anderson,rodney anderson,82.75862068965517,True
+jamison crowder,jamison crowder,100.0,True
+robert woods,robert woods thomas,77.41935483870968,False
+jermaine kearse,jermaine kearse,100.0,True
+larry fitzgerald,larry foote,66.66666666666667,False
+laquon treadwell,travell dixon,62.06896551724138,False
+calvin ridley,calvin ridley,100.0,True
+robert foster,robert foster,100.0,True
+golden tate,auden tate,76.19047619047619,False
+marquez valdes-scantling,marquez valdes-scantling,100.0,True
+danny amendola,danny amendola,100.0,True
+jimmy graham,jimmy graham,100.0,True
+chris godwin,chris godwin,100.0,True
+chris hogan,chris hogan,100.0,True
+nelson agholor,jr nelson,69.56521739130434,False
+julian edelman,julian edelman,100.0,True
+christian kirk,christian kirksey,90.32258064516128,True
+odell beckham,odell beckham jr,89.65517241379311,True
+zay jones,nazair jones,76.19047619047619,False
+kenny stills,kenny willekes,76.92307692307692,False
+tajae sharpe,tajae sharpe,100.0,True
+emmanuel sanders,emmanuel sanders,100.0,True
+dede westbrook,dede westbrook,100.0,True
+seth roberts,shaun rogers,66.66666666666667,False
+d.j. moore,jd moore,77.77777777777779,False
+rob gronkowski,rob gronkowski,100.0,True
+evan engram,evan engram,100.0,True
+zach ertz,zach ertz,100.0,True
+corey davis,cody davis,85.71428571428572,True
+gerald everett,genard avery,61.53846153846154,False
+amari cooper,amani hooker,75.0,False
+ian thomas,ian thomas c,90.9090909090909,True
+jarius wright,eric wright,75.0,False
+demaryius thomas,demaryius thomas,100.0,True
+stefon diggs,stefon diggs,100.0,True
+donte moncrief,damontre moore,71.42857142857143,False
+t.y. hilton,ty hilton,90.0,True
+cole beasley,caleb brantley,69.23076923076923,False
+sterling shepard,sterling shepard,100.0,True
+tyreek hill,tyre phillips,75.0,False
+jordy nelson,jordy nelson,100.0,True
+marquise goodwin,marquise goodwin,100.0,True
+ryan switzer,ryan switzer,100.0,True
+adam thielen,adam thielen,100.0,True
+kyle rudolph,kyle rudolph,100.0,True
+trey burton,trey burton,100.0,True
+eric ebron,eric ebron,100.0,True
+chris herndon,chris herndon,100.0,True
+nick vannett,nick vannett,100.0,True
+zach pascal,zack pianalto,66.66666666666667,False
+mohamed sanu,mohamed sanu,100.0,True
+julio jones,julio jones,100.0,True
+mike evans,mike evans lynn,80.0,True
+john brown,jamon brown,85.71428571428572,True
+chester rogers,chester rogers,100.0,True
+brandin cooks,brandin cooks,100.0,True
+jeff heuerman,jeff heuerman,100.0,True
+ryan grant,logan ryan,80.0,True
+jarvis landry,jarvis landry,100.0,True
+cameron brate,cameron brate,100.0,True
+tyler boyd,tyler boyd,100.0,True
+travis kelce,travis kelce,100.0,True
+josh doctson,josh doctson,100.0,True
+jared cook,jared cook,100.0,True
+tre'quan smith,trequan smith,96.2962962962963,True
+austin hooper,austin howard,76.92307692307692,False
+pierre garcon,pierre garcon,100.0,True
+tyrell williams,tyrell williams,100.0,True
+david njoku,david njoku,100.0,True
+allen robinson,allen robinson ii,90.32258064516128,True
+vance mcdonald,vance mcdonald,100.0,True
+sammy watkins,sammy watkins,100.0,True
+kelvin benjamin,kelvin benjamin,100.0,True
+alshon jeffery,alshon jeffery,100.0,True
+will fuller,will fuller v,91.66666666666666,True
+chad williams,chavis williams,85.71428571428572,True
+george kittle,george kittle,100.0,True
+willie snead,willie snead iv,88.88888888888889,True
+john ross,josh ross,88.88888888888889,True
+randall cobb,randall cobb,100.0,True
+dante pettis,dante pettis,100.0,True
+daesean hamilton,davon hamilton,80.0,True
+michael gallup,michael gallup,100.0,True
+juju smith-schuster,juju smith-schuster,100.0,True
+michael crabtree,zachary crabtree,75.0,False
+ricky seals-jones,ricky seals-jones,100.0,True
+keenan allen,keenan allen,100.0,True
+mark andrews,mark andrews,100.0,True
+anthony miller,anthony miller b --,84.84848484848484,True
+ben watson,jaylen watson,78.26086956521739,False
+doug baldwin,darryl baldwin,69.23076923076923,False
+dallas goedert,dallas goedert,100.0,True
+ryan griffin,ryan griffin b --,82.75862068965517,True
+devante parker,devante parker,100.0,True
+antonio brown,antonio dixon,76.92307692307692,False
+c.j. uzomah,cj uzomah,90.0,True
+devin funchess,devin funchess,100.0,True
+antonio callaway,antonio callaway,100.0,True
+mike williams,mike williams k,92.85714285714286,True
+deandre hopkins,deandre hopkins,100.0,True
+kenny golladay,kenny bell,66.66666666666667,False
+davante adams,andrew adams,72.0,False
+david moore,devin moore,81.81818181818181,True
+josh gordon,josh gordon,100.0,True
+michael thomas,michael thomas b --,84.84848484848484,True
+courtland sutton,courtland sutton,100.0,True
+o.j. howard,oj howard,90.0,True
+antonio gates,antonio gates,100.0,True
+a.j. green,chaz green,70.0,False
+marvin jones,marvin jones jr,88.88888888888889,True
+ted ginn,ted ginn jr,84.21052631578947,True
+albert wilson,albert wilson,100.0,True
+jacob hollister,jacob hollister,100.0,True
+steven sims,steven sims jr,88.0,True
+alex erickson,erick all,72.72727272727273,False
+trey quinn,trey quinn,100.0,True
+olabisi johnson,olabisi johnson,100.0,True
+d.j. chark,dj chark,88.88888888888889,True
+hunter renfrow,hunter renfrow,100.0,True
+allen lazard,allen lazard,100.0,True
+marquise brown,marquise brown,100.0,True
+kelvin harmon,kelvin hayden,76.92307692307692,False
+allen hurns,allen hurns,100.0,True
+nick boyle,nick boyle,100.0,True
+james washington,james washington edward,82.05128205128204,True
+diontae johnson,diontae johnson,100.0,True
+tyler higbee,tyler higbee,100.0,True
+breshad perriman,breshad perriman,100.0,True
+jonnu smith,jonnu smith,100.0,True
+russell gage,russell gage,100.0,True
+t.j. hockenson,tj hockenson,92.3076923076923,True
+auden tate,auden tate,100.0,True
+mike gesicki,mike gillislee,61.53846153846154,False
+jordan akins,jordan jenkins,84.61538461538461,True
+deebo samuel,deebo samuel,100.0,True
+damiere byrd,damiere byrd,100.0,True
+geronimo allison,geronimo allison,100.0,True
+jason witten,jason wilson,75.0,False
+hunter henry,hunter henry,100.0,True
+noah fant,rashard fant,66.66666666666667,False
+jack doyle,jack doyle,100.0,True
+tyler eifert,tyler eifert,100.0,True
+irv smith,irv smith jr,85.71428571428572,True
+darren waller,darren waller,100.0,True
+demarcus robinson,darius robinson,87.5,True
+phillip dorsett,phillip dorsett ii,90.9090909090909,True
+terry mclaurin,terrell mcclain,75.86206896551724,False
+greg olsen,greg olsen,100.0,True
+darren fells,daniel fells,75.0,False
+a.j. brown,aj brown,88.88888888888889,True
+d.k. metcalf,damik scafe,52.17391304347826,False
+darius slayton,adarius glanton,82.75862068965517,True
+preston williams,preston williams,100.0,True
+dawson knox,dawson knox,100.0,True
+darnell mooney,darnell mooney,100.0,True
+braxton berrios,braxton berrios,100.0,True
+laviska shenault,laviska shenault jr,91.42857142857143,True
+henry ruggs,rashaun henry,66.66666666666667,False
+cam sims,cam sims,100.0,True
+dalton schultz,anthony schwartz,66.66666666666667,False
+jakeem grant,jakeem grant,100.0,True
+hayden hurst,hayden hurst,100.0,True
+jalen reagor,jalen reagor,100.0,True
+tee higgins,kareem huggins,72.0,False
+cole kmet,cole luke,77.77777777777779,False
+anthony firkser,anthony walker jr,75.0,False
+mecole hardman,mecole hardman,100.0,True
+jakobi meyers,myles jack,69.56521739130434,False
+michael pittman,michael pittman jr,90.9090909090909,True
+gabriel davis,marlon davis,72.0,False
+dan arnold,dan arnold,100.0,True
+jalen guyton,jalen guyton,100.0,True
+scott miller,scotty miller,96.0,True
+robert tonyan,robert tonyan,100.0,True
+k.j. hamler,kj hamler,90.0,True
+travis fulgham,travis long,72.0,False
+n'keal harry,nkeal harry,95.65217391304348,True
+ceedee lamb,ceedee lamb,100.0,True
+drew sample,drew sample,100.0,True
+greg ward,greg ward,100.0,True
+justin jefferson,justin jefferson,100.0,True
+logan thomas,logan thomas,100.0,True
+chase claypool,chase claypool,100.0,True
+tim patrick,tim patrick,100.0,True
+isaiah ford,isaiah ford,100.0,True
+brandon aiyuk,brandon aiyuk,100.0,True
+dk metcalf,damik scafe,57.14285714285714,False
+jerry jeudy,jerry jeudy,100.0,True
+denzel mims,denzel mims,100.0,True
+rondale moore,rondale moore,100.0,True
+devin duvernay,devin duvernay,100.0,True
+deonte harris,devante harris,88.88888888888889,True
+kadarius toney,adarius glanton,75.86206896551724,False
+rashod bateman,rashod bateman,100.0,True
+kalif raymond,kalif raymond,100.0,True
+amon-ra st. brown,troy brown a,62.06896551724138,False
+jaylen waddle,jalen parmele,69.23076923076923,False
+olamide zaccheaus,olamide zaccheaus,100.0,True
+cedrick wilson,cedrick lang,76.92307692307692,False
+devonta smith,djoun smith,75.0,False
+van jefferson,van jefferson,100.0,True
+quez watkins,quez watkins,100.0,True
+tyler johnson,tyler johnstone,92.85714285714286,True
+kyle pitts,kyle pitts,100.0,True
+elijah moore,elijah moore,100.0,True
+marquez callaway,marquez callaway,100.0,True
+donovan peoples-jones,donovan wilson,68.57142857142857,False
+k.j. osborn,jack sanborn,60.86956521739131,False
+ray-ray mccloud,ray-ray mccloud,100.0,True
+pat freiermuth,pat freiermuth,100.0,True
+byron pringle,byron pringle,100.0,True
+nick westbrook-ikhine,nick westbrook-ikhine nick westbrook,73.6842105263158,False
+nico collins,nico collins,100.0,True
+tyler conklin,colin jeter,75.0,False
+mo alie-cox,mo alie-cox,100.0,True
+josh palmer,josh walker,81.81818181818181,True
+bryan edwards,braylon edwards,85.71428571428572,True
+ja'marr chase,jamar chaney,80.0,True
+greg dortch,greg dulcich,69.56521739130434,False
+ben skowronek,ben skowronek,100.0,True
+chris olave,chris olave,100.0,True
+treylon burks,treylon burks,100.0,True
+drake london,lacale london,72.0,False
+deandre carter,deandre carter,100.0,True
+noah brown,noah brown,100.0,True
+richie james,richie james,100.0,True
+isaiah hodgins,isaiah hodgins,100.0,True
+mack hollins,mack hollins,100.0,True
+greg dulcich,greg dulcich,100.0,True
+parris campbell,parris campbell,100.0,True
+chigoziem okonkwo,chidi okeke,57.14285714285714,False
+isaiah likely,isaiah oliver,76.92307692307692,False
+romeo doubs,doug kramer,63.63636363636363,False
+jauan jennings,gary jennings,74.07407407407408,False
+cade otton,tony mcrae,70.0,False
+alec pierce,pierre allen,78.26086956521739,False
+chris moore,chris okoye,81.81818181818181,True
+christian watson,christian thompson,82.35294117647058,True
+jahan dotson,josh doctson,75.0,False
+tyquan thornton,tyquan thornton,100.0,True
+trent sherfield,trent harris,66.66666666666667,False
+garrett wilson,garrett sickels,75.86206896551724,False
+juwan johnson,justin johnson,81.4814814814815,True
+foster moreau,foster moreau,100.0,True
+terrace marshall,terrace marshall jr,91.42857142857143,True
+isaiah mckenzie,isaiah mckenzie,100.0,True
+george pickens,george winn,72.0,False
+zay flowers,trey flowers,78.26086956521739,False
+dontayvion wicks,donavin newsom,66.66666666666667,False
+jaxon smith-njigba,jason smith,68.96551724137932,False
+wan'dale robinson,wandale robinson,96.96969696969697,True
+tank dell,mark dell,77.77777777777779,False
+demario douglas,dominic douglas,73.33333333333334,False
+tutu atwell,sae tautu,70.0,False
+rashid shaheed,rashid shaheed,100.0,True
+jayden reed,joe reed,73.6842105263158,False
+jordan addison,jordon dizon,76.92307692307692,False
+trey palmer,trey taylor,72.72727272727273,False
+kylen granson,jason kyle,78.26086956521739,False
+rashee rice,rashee rice,100.0,True
+tanner hudson,tanner muse,75.0,False
+michael wilson,michael wilhoite,80.0,True
+jonathan mingo,jonathan mingo,100.0,True
+josh downs,josh gordon,76.19047619047619,False
+quentin johnston,quinn johnson,82.75862068965517,True
+dalton kincaid,dalton risner,66.66666666666667,False
+justin watson,justin tryon,80.0,True
+puka nacua,puka nacua,100.0,True
+sam laporta,sean porter,63.63636363636363,False
+khalil shakir,khalil mack,75.0,False
+luke musgrave,luke musgrave,100.0,True
+jake ferguson,parker ferguson,85.71428571428572,True
+odell beckham jr.,odell beckham jr,96.96969696969697,True
+trey mcbride,trumaine mcbride,78.57142857142857,False
+marvin mims jr.,mike morris jr,62.06896551724138,False
+troy franklin,sam franklin jr,71.42857142857143,False
+jalen mcmillan,jalen mills,80.0,True
+colby parkinson,colby parkinson,100.0,True
+lil'jordan humphrey,marlon humphrey,70.58823529411764,False
+jalen tolbert,mike tolbert,72.0,False
+parker washington,parker washington,100.0,True
+jameson williams,jameson williams,100.0,True
+brock bowers,brock bolen,78.26086956521739,False
+brenton strange,brandon saine,71.42857142857143,False
+jalen coker,jake coker,85.71428571428572,True
+calvin austin iii,calvin austin iii,100.0,True
+xavier legette,maurice leggett,68.96551724137932,False
+xavier worthy,xavier crawford,71.42857142857143,False
+kavontae turpin,davontae harris,66.66666666666667,False
+brian thomas jr.,brian thomas jr,96.7741935483871,True
+tre tucker,matthew tucker,75.0,False
+cedric tillman,cedric tillman b,93.33333333333333,True
+malik nabers,malik turner,75.0,False
+tucker kraft,tyler kroft,69.56521739130434,False
+adonai mitchell,mitchell fraboni,83.87096774193549,True
+will dissly,will dissly,100.0,True
+ricky pearsall,erick all,69.56521739130434,False
+ladd mcconkey,gerald mccoy,64.0,False
+noah gray,jonas gray,73.6842105263158,False
+devaughn vele,devan walker,64.0,False
+dj moore,jd moore,87.5,True
+rome odunze,denzel rice,63.63636363636363,False
+deebo samuel sr.,deebo samuel,85.71428571428572,True
+andrei iosivas,andre williams,71.42857142857143,False
+marvin harrison jr.,ronnie harrison jr,75.67567567567568,False
+keon coleman,kenyon coleman,92.3076923076923,True
+kayshon boutte,kyshoen jarrett,62.06896551724138,False
