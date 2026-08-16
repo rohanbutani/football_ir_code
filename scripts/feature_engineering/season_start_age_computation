@@ -1,0 +1,28 @@
+import pandas as pd
+from datetime import datetime
+
+# === Step 1: Load your main dataset ===
+df = pd.read_csv("player_season_with_epa_and_sos.csv")
+
+# === Step 2: Convert birth_date to datetime ===
+df["birth_date"] = pd.to_datetime(df["birth_date"], errors="coerce", format="%m/%d/%Y")
+
+# === Step 3: Create September 1 anchor date for each season ===
+df["season_start"] = pd.to_datetime(df["season"].astype(str) + "-09-01")
+
+# === Step 4: Compute integer age in years (rounded down) ===
+def compute_age_years(birth_date, season_start):
+    if pd.isnull(birth_date) or pd.isnull(season_start):
+        return None
+    age = season_start.year - birth_date.year
+    if (season_start.month, season_start.day) < (birth_date.month, birth_date.day):
+        age -= 1  # Birthday hasn't occurred yet this season
+    return age
+
+df["age_season_start"] = df.apply(lambda row: compute_age_years(row["birth_date"], row["season_start"]), axis=1)
+
+# === Step 5: Drop helper column and save ===
+df = df.drop(columns=["season_start"])
+df.to_csv("player_season_with_epa_sos_age.csv", index=False)
+
+print("✅ Integer age computation complete. File saved as player_season_with_epa_sos_age.csv")
