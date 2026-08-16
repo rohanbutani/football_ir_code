@@ -21,4 +21,4 @@ Organized project structure for injury reserve research workflows.
 ## Notes
 
 This reorganization preserves filenames while moving them into functional groups.
-If any script assumes the old flat directory layout, its input/output paths will need to be updated before rerunning.
+The repository has been refactored so scripts now resolve data paths relative to the repository root.
