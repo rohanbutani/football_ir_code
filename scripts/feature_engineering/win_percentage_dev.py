@@ -2,7 +2,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
-import nfl_data_py as nfl
+try:
+    import nfl_data_py as nfl
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        f"{Path(__file__).name} requires nfl_data_py. Install it before running this script."
+    ) from exc
 
 # === Step 1: Load schedule data (2018–2024) ===
 schedule = nfl.import_schedules([2018, 2019, 2020, 2021, 2022, 2023, 2024])

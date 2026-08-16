@@ -2,7 +2,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
-import nfl_data_py as nfl
+try:
+    import nfl_data_py as nfl
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        f"{Path(__file__).name} requires nfl_data_py. Install it before running this script."
+    ) from exc
 
 # --- Step 1: Load your uploaded file ---
 df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/nextgen_with_teams_birthdates_and_travel.csv"))

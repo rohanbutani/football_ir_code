@@ -2,7 +2,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
-import nfl_data_py as nfl
+try:
+    import nfl_data_py as nfl
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        f"{Path(__file__).name} requires nfl_data_py. Install it before running this script."
+    ) from exc
 
 def load_defensive_epa(season):
     pbp = nfl.import_pbp_data([season])

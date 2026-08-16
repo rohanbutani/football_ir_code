@@ -4,7 +4,12 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 import pandas as pd
 import numpy as np
 from math import radians, cos, sin, asin, sqrt
-from nfl_data_py import import_pbp_data
+try:
+    from nfl_data_py import import_pbp_data
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        f"{Path(__file__).name} requires nfl_data_py. Install it before running this script."
+    ) from exc
 
 # Step 1: Define stadium coordinates for all teams
 stadium_coords = {

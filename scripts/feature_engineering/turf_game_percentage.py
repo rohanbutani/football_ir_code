@@ -2,7 +2,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
-from nfl_data_py import import_schedules
+try:
+    from nfl_data_py import import_schedules
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        f"{Path(__file__).name} requires nfl_data_py. Install it before running this script."
+    ) from exc
 
 # Surface overrides (assume no new stadium changes in 2024 unless known)
 stadium_surface_by_year = {

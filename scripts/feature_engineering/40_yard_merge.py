@@ -2,7 +2,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
-import nfl_data_py as nfl
+try:
+    import nfl_data_py as nfl
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        f"{Path(__file__).name} requires nfl_data_py. Install it before running this script."
+    ) from exc
 
 # --- Load main dataset ---
 df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_weight_FINAL.csv"))

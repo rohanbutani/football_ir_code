@@ -3,7 +3,12 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
 import re
-from nfl_data_py import import_seasonal_rosters
+try:
+    from nfl_data_py import import_seasonal_rosters
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        f"{Path(__file__).name} requires nfl_data_py. Install it before running this script."
+    ) from exc
 
 # --- Helper to clean names ---
 def clean_name(name):
