@@ -5,7 +5,6 @@ import pandas as pd
 import nfl_data_py as nfl
 
 def load_defensive_epa(season):
-    import nfl_data_py as nfl
     pbp = nfl.import_pbp_data([season])
 
     # Filter to pass plays where defense is involved
@@ -67,5 +66,7 @@ def calculate_def_epa_sos(season):
 if __name__ == "__main__":
     season = 2023
     sos = calculate_def_epa_sos(season)
-    sos.to_csv(f"epa_sos_{season}.csv", index=False)
+    output_path = ROOT / f"data/raw/team_context/epa_sos_{season}.csv"
+    sos.to_csv(output_path, index=False)
+    print(f"Saved opponent EPA SOS data to {output_path}")
     print(sos.head())
