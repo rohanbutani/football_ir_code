@@ -1,0 +1,28 @@
+import pandas as pd
+import nfl_data_py as nfl
+
+# 1. Load your original data
+df = pd.read_csv('nextgen_with_teams_birthdates_and_travel_UPDATED.csv')
+
+# 2. Pull rosters for 2018–2024
+seasons = list(range(2018, 2025))
+rosters = nfl.import_seasonal_rosters(seasons)
+
+# 3. Deduplicate the roster to one entry per player/season
+#    (keeps the first occurrence if there are multiples)
+rosters_unique = rosters.drop_duplicates(subset=['player_name', 'season'])
+
+# 4. Merge on both playerName and season
+df_merged = pd.merge(
+    df,
+    rosters_unique[['player_name', 'season', 'birth_date']],
+    left_on=['playerName', 'season'],
+    right_on=['player_name', 'season'],
+    how='left'
+)
+
+# 5. Clean up and save
+df_merged.drop(columns=['player_name'], inplace=True)
+df_merged.to_csv('nextgen_with_teams_and_birthdates_fixed.csv', index=False)
+
+print("✅ Merged without creating duplicates; output has", len(df_merged), "rows.")
