@@ -2,8 +2,25 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
-from rapidfuzz import fuzz
-from tqdm import tqdm
+try:
+    from rapidfuzz import fuzz
+except ModuleNotFoundError:
+    from difflib import SequenceMatcher
+
+    class _FuzzFallback:
+        @staticmethod
+        def token_sort_ratio(left, right):
+            left_tokens = " ".join(sorted(str(left).split()))
+            right_tokens = " ".join(sorted(str(right).split()))
+            return int(100 * SequenceMatcher(None, left_tokens, right_tokens).ratio())
+
+    fuzz = _FuzzFallback()
+
+try:
+    from tqdm import tqdm
+except ModuleNotFoundError:
+    def tqdm(iterable, **_kwargs):
+        return iterable
 
 # File paths
 IR_CSV     = str(ROOT / "data/intermediate/injury_matching/ir_player_names_deduplicated.csv")

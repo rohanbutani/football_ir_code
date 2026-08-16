@@ -2,7 +2,26 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
-from rapidfuzz import fuzz, process
+try:
+    from rapidfuzz import fuzz, process
+except ModuleNotFoundError:
+    from difflib import SequenceMatcher
+
+    class _FuzzFallback:
+        @staticmethod
+        def token_sort_ratio(left, right):
+            left_tokens = " ".join(sorted(str(left).split()))
+            right_tokens = " ".join(sorted(str(right).split()))
+            return int(100 * SequenceMatcher(None, left_tokens, right_tokens).ratio())
+
+    class _ProcessFallback:
+        @staticmethod
+        def extractOne(query, choices, scorer):
+            scored = [(choice, scorer(query, choice), None) for choice in choices]
+            return max(scored, key=lambda item: item[1]) if scored else (None, 0, None)
+
+    fuzz = _FuzzFallback()
+    process = _ProcessFallback()
 
 # File paths
 IR_CSV     = str(ROOT / "data/intermediate/injury_matching/ir_player_names_deduplicated.csv")
