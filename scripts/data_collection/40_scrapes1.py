@@ -1,6 +1,8 @@
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
+import glob
+import os
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -8,6 +10,11 @@ from sportsdataio import NFL
 
 # Concatenate per-year combine files
 files = glob.glob(str(ROOT / 'data/raw/combine_speed/combine_data/*_combine.csv'))
+if not files:
+    raise FileNotFoundError(
+        f"No combine source files found under {ROOT / 'data/raw/combine_speed/combine_data'}"
+    )
+
 df_combine = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
 
 # Merge official combine times
@@ -20,15 +27,19 @@ df = df_missing.merge(
 ).rename(columns={'FortyYardDash':'combine_40'})
 
 # Fetch via API for still-missing entries
-api = NFL(api_key='YOUR_KEY')
+api_key = os.environ.get("SPORTSDATAIO_API_KEY")
+api = NFL(api_key=api_key) if api_key else None
 for idx, row in df[df['combine_40'].isna()].iterrows():
+    if api is None:
+        break
     result = api.get_combine_stats(player_name=row['name'])
-    df.at[idx, 'api_40'] = result.get('forty_time')
+    if isinstance(result, dict):
+        df.at[idx, 'api_40'] = result.get('forty_time')
 
 # Scrape pro days for remaining gaps
 def scrape_pro_day(name):
     url = 'https://bnbfootball.com/complete-pro-day-results-2025/'
-    text = requests.get(url).text
+    text = requests.get(url, timeout=30).text
     soup = BeautifulSoup(text, 'html.parser')
     # implement name-matching logic here...
     return None
@@ -41,3 +52,4 @@ df['proday_40'] = df.apply(
 # Finalize by prioritizing sources
 df['final_40'] = df['combine_40'].fillna(df['api_40']).fillna(df['proday_40'])
 df.to_csv(str(ROOT / "data/intermediate/player_enrichment/filled_40_Yard_Dash_Times.csv"), index=False)
+print(f"Saved filled 40-yard times to {ROOT / 'data/intermediate/player_enrichment/filled_40_Yard_Dash_Times.csv'}")
