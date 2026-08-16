@@ -1,0 +1,76 @@
+import pandas as pd
+import numpy as np
+from math import radians, cos, sin, asin, sqrt
+from nfl_data_py import import_pbp_data
+
+# Step 1: Define stadium coordinates for all teams
+stadium_coords = {
+    'ARI': (33.5275, -112.2625), 'ATL': (33.7550, -84.4008),
+    'BAL': (39.2780, -76.6227), 'BUF': (42.7738, -78.7869),
+    'CAR': (35.2258, -80.8528), 'CHI': (41.8623, -87.6167),
+    'CIN': (39.0954, -84.5160), 'CLE': (41.5061, -81.6995),
+    'DAL': (32.7473, -97.0945),  'DEN': (39.7439, -105.0201),
+    'DET': (42.3400, -83.0456),  'GB':  (44.5013, -88.0622),
+    'HOU': (29.6847, -95.4107),  'IND': (39.7601, -86.1639),
+    'JAX': (30.3239, -81.6373),  'KC':  (39.0490, -94.4839),
+    'LV':  (36.0908, -115.1830), 'LAC': (33.9535, -118.3391),
+    'LA': (33.9535, -118.3391), 'MIA': (25.9580, -80.2389),
+    'MIN': (44.9740, -93.2581),  'NE':  (42.0909, -71.2643),
+    'NO':  (29.9509, -90.0810),  'NYG': (40.8135, -74.0745),
+    'NYJ': (40.8135, -74.0745),'OAK': (37.7516, -122.2005),
+    'PHI': (39.9008, -75.1675),'PIT': (40.4468, -80.0158),
+    'SF':  (37.4030, -121.9700),'SEA': (47.5952, -122.3316),
+    'TB':  (27.9759, -82.5033),'TEN': (36.1665, -86.7713),
+    'WAS': (38.9078, -76.8644),
+}
+
+# Step 2: Define Haversine distance function
+def haversine(lat1, lon1, lat2, lon2):
+    R = 3958.8  # Earth radius in miles
+    lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a))
+    return R * c
+
+# Step 3: Load play-by-play data for 2018–2024
+seasons = list(range(2018, 2025))
+pbp = import_pbp_data(seasons)
+
+# Step 4: Build schedule of unique games
+games = pbp[['game_id', 'season', 'week', 'home_team', 'away_team']].drop_duplicates()
+
+# Step 5: Create long-format schedule with one row per team per game
+home_rows = games.rename(columns={'home_team': 'team', 'away_team': 'opponent'})
+home_rows['is_home'] = True
+away_rows = games.rename(columns={'away_team': 'team', 'home_team': 'opponent'})
+away_rows['is_home'] = False
+
+long_schedule = pd.concat([home_rows, away_rows], ignore_index=True)
+
+# Step 6: Map team and opponent to coordinates
+def get_coords(team):
+    return stadium_coords.get(team, (np.nan, np.nan))
+
+long_schedule[['team_lat', 'team_lon']] = long_schedule['team'].apply(lambda x: pd.Series(get_coords(x)))
+long_schedule[['opp_lat', 'opp_lon']] = long_schedule['opponent'].apply(lambda x: pd.Series(get_coords(x)))
+
+# Step 7: Compute round-trip distance for away games only
+away_games = long_schedule[long_schedule['is_home'] == False].copy()
+away_games['round_trip_miles'] = away_games.apply(
+    lambda row: 2 * haversine(row['team_lat'], row['team_lon'], row['opp_lat'], row['opp_lon']),
+    axis=1
+)
+
+# Step 8: Aggregate total travel per team-season
+team_season_miles = (
+    away_games.groupby(['team', 'season'])['round_trip_miles']
+    .sum()
+    .reset_index()
+    .rename(columns={'round_trip_miles': 'total_round_trip_miles'})
+)
+
+# Step 9: Export or merge with player data
+team_season_miles.to_csv("team_season_travel_miles.csv", index=False)
+print("✅ Saved team_season_travel_miles.csv with round-trip mileage per team-season.")
