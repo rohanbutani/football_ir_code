@@ -1,5 +1,5 @@
 from pathlib import Path
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
 data=pd.read_csv(str(ROOT / "data/processed/final_datasets/final_data2.csv"))

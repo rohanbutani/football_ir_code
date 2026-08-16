@@ -1,5 +1,5 @@
 from pathlib import Path
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 
 import pandas as pd
 from rapidfuzz import fuzz, process
