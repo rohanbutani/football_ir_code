@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # 1. Load your original data
-df = pd.read_csv('nextgen_with_teams_birthdates_and_travel_UPDATED.csv')
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/nextgen_with_teams_birthdates_and_travel_UPDATED.csv"))
 
 # 2. Pull rosters for 2018–2024
 seasons = list(range(2018, 2025))
@@ -23,6 +26,6 @@ df_merged = pd.merge(
 
 # 5. Clean up and save
 df_merged.drop(columns=['player_name'], inplace=True)
-df_merged.to_csv('nextgen_with_teams_and_birthdates_fixed.csv', index=False)
+df_merged.to_csv(str(ROOT / "data/intermediate/player_enrichment/nextgen_with_teams_and_birthdates_fixed.csv"), index=False)
 
 print("✅ Merged without creating duplicates; output has", len(df_merged), "rows.")

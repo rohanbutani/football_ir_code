@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # Load your merged dataset
-df = pd.read_csv("player_season_with_epa_sos_age_height.csv")
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_epa_sos_age_height.csv"))
 
 # Identify rows with missing height
 missing_df = df[df["height"].isnull()].copy()
@@ -38,5 +41,5 @@ print("✅ Fallback patch sample:\n", fallback_patch[["playerName", "height_y"]]
 df.loc[df["height"].isnull(), "height"] = fallback_patch["height_y"].values
 
 # Save the updated dataset
-df.to_csv("player_season_with_epa_sos_age_height_PATCHED.csv", index=False)
+df.to_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_PATCHED.csv"), index=False)
 print("✅ Missing height values patched and saved.")

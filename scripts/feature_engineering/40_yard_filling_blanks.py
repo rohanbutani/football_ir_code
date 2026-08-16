@@ -1,11 +1,14 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import re
 
 # ————————————————
 # File paths (edit as needed)
-BIG_CSV    = 'C:/Users/rohan/player_season_with_forty_yard.csv'
-TIMES_CSV  = 'C:/Users/rohan/40yd_times.csv'
-OUT_CSV    = 'C:/Users/rohan/player_season_with_forty_yard_merged2.csv'
+BIG_CSV    = str(ROOT / "data/intermediate/player_enrichment/player_season_with_forty_yard.csv")
+TIMES_CSV  = str(ROOT / "data/raw/combine_speed/40yd_times.csv")
+OUT_CSV    = str(ROOT / "data/intermediate/player_enrichment/player_season_with_forty_yard_merged2.csv")
 # ————————————————
 
 def normalize(name: str) -> str:

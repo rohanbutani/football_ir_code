@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 from datetime import datetime
 
 # Load your cleaned IR "additions only" dataset
-df = pd.read_csv("ir_additions_only.csv")
+df = pd.read_csv(str(ROOT / "data/raw/injury_reserve/ir_additions_only.csv"))
 
 # Convert the Date column to datetime
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
@@ -18,5 +21,5 @@ def get_season_year(date):
 df['Season'] = df['Date'].apply(get_season_year)
 
 # Save updated file
-df.to_csv("ir_additions_with_season.csv", index=False)
-print("✅ Added 'Season' column using 3/14 cutoff. Saved to 'ir_additions_with_season.csv'")
+df.to_csv(str(ROOT / "data/intermediate/injury_matching/ir_additions_with_season.csv"), index=False)
+print(f"✅ Added 'Season' column using 3/14 cutoff. Saved to {ROOT / 'data/intermediate/injury_matching/ir_additions_with_season.csv'}")

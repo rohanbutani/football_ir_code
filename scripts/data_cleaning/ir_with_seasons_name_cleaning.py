@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import re
 
 # Load your IR data
-df = pd.read_csv("ir_additions_with_season.csv", encoding='utf-8')
+df = pd.read_csv(str(ROOT / "data/intermediate/injury_matching/ir_additions_with_season.csv"), encoding='utf-8')
 
 # Define function to clean player names
 def clean_name(text):
@@ -26,5 +29,5 @@ df['Player'] = df['Acquired'].combine_first(df['Relinquished'])
 # df['Player'] = df['Player'].str.title()
 
 # Save the cleaned dataset
-df.to_csv("ir_cleaned_for_matching.csv", index=False, encoding='utf-8')
-print("✅ Names cleaned and ready for cross-referencing. Saved to 'ir_cleaned_for_matching.csv'")
+df.to_csv(str(ROOT / "data/intermediate/injury_matching/ir_cleaned_for_matching.csv"), index=False, encoding='utf-8')
+print(f"✅ Names cleaned and ready for cross-referencing. Saved to {ROOT / 'data/intermediate/injury_matching/ir_cleaned_for_matching.csv'}")

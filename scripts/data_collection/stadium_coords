@@ -1,3 +1,6 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import numpy as np
 from math import radians, cos, sin, asin, sqrt
@@ -72,5 +75,5 @@ team_season_miles = (
 )
 
 # Step 9: Export or merge with player data
-team_season_miles.to_csv("team_season_travel_miles.csv", index=False)
+team_season_miles.to_csv(str(ROOT / "data/raw/travel_surface/team_season_travel_miles.csv"), index=False)
 print("✅ Saved team_season_travel_miles.csv with round-trip mileage per team-season.")

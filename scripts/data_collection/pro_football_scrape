@@ -1,3 +1,6 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -43,5 +46,5 @@ while True:
 
 # Save to CSV
 df = pd.DataFrame(all_data, columns=["Date", "Team", "Acquired", "Relinquished", "Notes"])
-df.to_csv("ir_data_2010_onward.csv", index=False)
-print(f"✅ Done! Scraped {len(df)} rows and saved to 'ir_data_2010_onward.csv'")
+df.to_csv(str(ROOT / "data/raw/injury_reserve/ir_data_2010_onward.csv"), index=False)
+print(f"✅ Done! Scraped {len(df)} rows and saved to {ROOT / 'data/raw/injury_reserve/ir_data_2010_onward.csv'}")

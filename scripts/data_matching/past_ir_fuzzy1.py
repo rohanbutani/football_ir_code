@@ -1,10 +1,13 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 from rapidfuzz import fuzz, process
 
 # File paths
-IR_CSV     = 'C:/Users/rohan/ir_player_names_deduplicated.csv'
-PS_CSV     = 'C:/Users/rohan/player_season_with_forty_yard.csv'
-OUTPUT_CSV = 'C:/Users/rohan/player_season_with_ir_counts.csv'
+IR_CSV     = str(ROOT / "data/intermediate/injury_matching/ir_player_names_deduplicated.csv")
+PS_CSV     = str(ROOT / "data/intermediate/player_enrichment/player_season_with_forty_yard.csv")
+OUTPUT_CSV = str(ROOT / "data/intermediate/player_enrichment/player_season_with_ir_counts.csv")
 
 # Load and clean IR dataset
 ir = pd.read_csv(IR_CSV, dtype=str)

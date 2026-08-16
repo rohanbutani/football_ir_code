@@ -1,5 +1,8 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent
+
 import pandas as pd
-data=pd.read_csv('final_data2.csv')
+data=pd.read_csv(str(ROOT / "data/processed/final_datasets/final_data2.csv"))
 
 #KNN Imputation
 from sklearn.impute import KNNImputer
@@ -63,7 +66,7 @@ from sklearn.metrics import (
     f1_score, roc_auc_score, average_precision_score, accuracy_score
 )
 
-=ipe = Pipeline([
+pipe = Pipeline([
     ('smote', SMOTE(random_state=42)),
     ('scaler', StandardScaler()),
     ('lr', LogisticRegression(solver='liblinear', max_iter=1000, random_state=42))

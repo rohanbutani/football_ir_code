@@ -1,7 +1,10 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # Load your full IR data
-df = pd.read_csv("ir_data_2010_onward.csv")  # change filename as needed
+df = pd.read_csv(str(ROOT / "data/raw/injury_reserve/ir_data_2010_onward.csv"))  # change filename as needed
 
 # Normalize columns
 df['Notes'] = df['Notes'].astype(str).str.lower()
@@ -17,5 +20,5 @@ df_filtered = df[
 ]
 
 # Save the filtered result
-df_filtered.to_csv("ir_additions_only.csv", index=False)
-print(f"✅ Filtered {len(df_filtered)} 'placed on IR' entries saved to 'ir_additions_only.csv'")
+df_filtered.to_csv(str(ROOT / "data/raw/injury_reserve/ir_additions_only.csv"), index=False)
+print(f"✅ Filtered {len(df_filtered)} 'placed on IR' entries saved to {ROOT / 'data/raw/injury_reserve/ir_additions_only.csv'}")

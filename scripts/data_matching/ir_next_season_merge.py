@@ -1,9 +1,12 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # ─── CONFIGURE PATHS ───────────────────────────────────────────────────────────
-MAIN_CSV   = 'C:/Users/rohan/player_season_with_ir_count.csv'             # your big dataset
-FUZZY_CSV  = 'C:/Users/rohan/fuzzy_match_season_ir_plus1.csv'            # fuzzy‐match results
-OUTPUT_CSV = 'C:/Users/rohan/player_season_with_ir_count_next_season_ir.csv'  # merged output
+MAIN_CSV   = str(ROOT / "data/intermediate/player_enrichment/player_season_with_ir_count.csv")             # your big dataset
+FUZZY_CSV  = str(ROOT / "data/intermediate/injury_matching/fuzzy_match_season_ir_plus1.csv")            # fuzzy‐match results
+OUTPUT_CSV = str(ROOT / "data/intermediate/player_enrichment/player_season_with_ir_count_next_season_ir.csv")  # merged output
 
 # ─── LOAD DATA ────────────────────────────────────────────────────────────────
 df_main  = pd.read_csv(MAIN_CSV)

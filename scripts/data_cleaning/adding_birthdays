@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # --- Step 1: Load original dataset ---
-df = pd.read_csv('nextgen_with_teams_FIXED.csv')
+df = pd.read_csv(str(ROOT / "data/raw/nextgen/nextgen_with_teams_FIXED.csv"))
 
 # --- Step 2: Load seasonal rosters from 2018–2024 ---
 seasons = list(range(2018, 2025))  # Inclusive of 2024
@@ -21,6 +24,6 @@ df_with_birthdates = pd.merge(
 df_with_birthdates.drop('player_name', axis=1, inplace=True)
 
 # --- Step 5: Save result ---
-df_with_birthdates.to_csv('nextgen_with_teams_and_birthdates.csv', index=False)
+df_with_birthdates.to_csv(str(ROOT / "data/intermediate/player_enrichment/nextgen_with_teams_and_birthdates.csv"), index=False)
 
-print("✅ Birthdates successfully merged and saved to 'nextgen_with_teams_and_birthdates.csv'.")
+print(f"✅ Birthdates successfully merged and saved to {ROOT / 'data/intermediate/player_enrichment/nextgen_with_teams_and_birthdates.csv'}.")

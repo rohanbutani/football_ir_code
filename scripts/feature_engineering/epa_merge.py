@@ -1,10 +1,13 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # Load the player-season dataset
-player_df = pd.read_csv("player_season_with_snaps.csv")
+player_df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_snaps.csv"))
 
 # Load the EPA dataset (team-level EPA per season)
-epa_df = pd.read_csv("epa_sos_2018_2024.csv")
+epa_df = pd.read_csv(str(ROOT / "data/raw/team_context/epa_sos_2018_2024.csv"))
 
 
 
@@ -25,6 +28,6 @@ merged_df = pd.merge(
 )
 
 # Save the merged output to a new file
-merged_df.to_csv("player_season_with_snaps_with_epa.csv", index=False)
+merged_df.to_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_snaps_with_epa.csv"), index=False)
 
 print("✅ Merge complete. File saved as player_season_with_snaps_with_epa.csv")

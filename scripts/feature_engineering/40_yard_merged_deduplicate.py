@@ -1,9 +1,12 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # —————————————————————————
 # File paths (edit if needed)
-IN_CSV  = r'C:/Users/rohan/player_season_with_forty_yard_merged2.csv'
-OUT_CSV = r'C:/Users/rohan/player_season_with_forty_dedup.csv'
+IN_CSV  = rstr(ROOT / "data/intermediate/player_enrichment/player_season_with_forty_yard_merged2.csv")
+OUT_CSV = rstr(ROOT / "data/intermediate/player_enrichment/player_season_with_forty_dedup.csv")
 # —————————————————————————
 
 def deduplicate(df: pd.DataFrame) -> pd.DataFrame:

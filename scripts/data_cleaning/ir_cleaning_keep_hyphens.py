@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import re
 
 # Load your IR data
-df = pd.read_csv("ir_additions_with_season.csv", encoding='utf-8')
+df = pd.read_csv(str(ROOT / "data/intermediate/injury_matching/ir_additions_with_season.csv"), encoding='utf-8')
 
 # Define function to clean player names (preserve hyphens)
 def clean_name(text):
@@ -23,5 +26,5 @@ df['Relinquished'] = df['Relinquished'].apply(clean_name)
 df['Player'] = df['Acquired'].combine_first(df['Relinquished'])
 
 # Save cleaned dataset
-df.to_csv("ir_cleaned_for_matching2.csv", index=False, encoding='utf-8')
-print("✅ Hyphen-preserving names cleaned and saved to 'ir_cleaned_for_matching2.csv'")
+df.to_csv(str(ROOT / "data/intermediate/injury_matching/ir_cleaned_for_matching2.csv"), index=False, encoding='utf-8')
+print(f"✅ Hyphen-preserving names cleaned and saved to {ROOT / 'data/intermediate/injury_matching/ir_cleaned_for_matching2.csv'}")

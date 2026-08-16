@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import re
 
 # Load your CSV
-df = pd.read_csv("nfl_receiving_nextgen_2018_2024.csv")
+df = pd.read_csv(str(ROOT / "data/raw/nextgen/nfl_receiving_nextgen_2018_2024.csv"))
 
 # Clean name function with suffix preservation
 def clean_name(name):
@@ -27,5 +30,5 @@ def clean_name(name):
 df["player_clean"] = df["playerName"].apply(clean_name)
 
 # Save cleaned version
-df.to_csv("nextgen_with_cleaned_names3.csv", index=False, encoding="utf-8")
-print("✅ Done! Saved as 'nextgen_with_cleaned_names3.csv'")
+df.to_csv(str(ROOT / "data/raw/nextgen/nextgen_with_cleaned_names3.csv"), index=False, encoding="utf-8")
+print(f"✅ Done! Saved as {ROOT / 'data/raw/nextgen/nextgen_with_cleaned_names3.csv'}")

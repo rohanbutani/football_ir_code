@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # --- Step 1: Load your player-season dataset ---
-df = pd.read_csv("player_season_with_epa_sos_age_height_FINAL.csv")
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_FINAL.csv"))
 df["playerName"] = df["playerName"].str.lower().str.strip()
 
 # --- Step 2: Pull roster data for all seasons and standardize ---
@@ -39,5 +42,5 @@ df.loc[mask_missing_weight, "weight"] = df.loc[mask_missing_weight, "playerName"
 df.loc[df["playerName"] == "ben watson", "weight"] = 251  # from PFR: 251 lbs
 
 # --- Step 6: Save final dataset ---
-df.to_csv("player_season_with_epa_sos_age_height_weight_FINAL.csv", index=False)
-print("✅ Weight merged and patched. Final file saved as 'player_season_with_epa_sos_age_height_weight_FINAL.csv'")
+df.to_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_weight_FINAL.csv"), index=False)
+print(f"✅ Weight merged and patched. Final file saved as {ROOT / 'data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_weight_FINAL.csv'}")

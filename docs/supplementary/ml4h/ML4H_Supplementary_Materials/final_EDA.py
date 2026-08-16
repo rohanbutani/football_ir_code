@@ -1,3 +1,6 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent.parent.parent
+
 # -*- coding: utf-8 -*-
 """Football3.ipynb
 
@@ -12,7 +15,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data=pd.read_csv('final_data2.csv')
+data=pd.read_csv(str(ROOT / "data/processed/final_datasets/final_data2.csv"))
 
 from sklearn.impute import KNNImputer
 from sklearn.preprocessing import StandardScaler
@@ -76,7 +79,7 @@ plt.show()
 import pandas as pd
 
 # Load the data
-data = pd.read_csv('final_data2.csv')
+data = pd.read_csv(str(ROOT / "data/processed/final_datasets/final_data2.csv"))
 
 # Count how many rows have next_season_ir == 1
 count_ir_1 = (data['next_season_ir'] == 1).sum()

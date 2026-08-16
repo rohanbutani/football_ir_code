@@ -1,3 +1,6 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import re
 from nfl_data_py import import_seasonal_rosters
@@ -15,7 +18,7 @@ def clean_name(name):
 
 
 # --- Load the cleaned NGS file ---
-df = pd.read_csv("nextgen_with_cleaned_names2.csv")
+df = pd.read_csv(str(ROOT / "data/raw/nextgen/nextgen_with_cleaned_names2.csv"))
 
 # --- Get all unique years ---
 years = sorted(df["season"].dropna().unique().astype(int))
@@ -37,5 +40,5 @@ merged = df.merge(
 merged = merged.rename(columns={"team": "team_abbr"})
 
 # --- Save to CSV ---
-merged.to_csv("nextgen_with_teams.csv", index=False)
-print("✅ Done! Saved as 'nextgen_with_teams.csv'")
+merged.to_csv(str(ROOT / "data/raw/nextgen/nextgen_with_teams.csv"), index=False)
+print(f"✅ Done! Saved as {ROOT / 'data/raw/nextgen/nextgen_with_teams.csv'}")

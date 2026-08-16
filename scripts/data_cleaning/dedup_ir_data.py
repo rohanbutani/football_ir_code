@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # Input and output paths
-INPUT_CSV  = 'C:/Users/rohan/ir_player_names_extracted.csv'
-OUTPUT_CSV = 'C:/Users/rohan/ir_player_names_deduplicated.csv'
+INPUT_CSV  = str(ROOT / "data/intermediate/injury_matching/ir_player_names_extracted.csv")
+OUTPUT_CSV = str(ROOT / "data/intermediate/injury_matching/ir_player_names_deduplicated.csv")
 
 # Load IR dataset
 df = pd.read_csv(INPUT_CSV, dtype=str)

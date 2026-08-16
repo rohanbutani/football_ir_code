@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # --- Set input and output file paths here ---
-INPUT_CSV = 'C:/Users/rohan/ir_player_names_deduplicated.csv'
-OUTPUT_CSV = 'C:/Users/rohan/ir_player_names_deduplicated_cleaned.csv'
+INPUT_CSV = str(ROOT / "data/intermediate/injury_matching/ir_player_names_deduplicated.csv")
+OUTPUT_CSV = str(ROOT / "data/intermediate/injury_matching/ir_player_names_deduplicated_cleaned.csv")
 
 
 def clean_name(name: str) -> str:

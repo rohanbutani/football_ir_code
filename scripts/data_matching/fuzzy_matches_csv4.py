@@ -1,11 +1,14 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 from rapidfuzz import fuzz
 from tqdm import tqdm
 
 # File paths
-IR_CSV     = 'C:/Users/rohan/ir_player_names_truncated.csv'
-PS_CSV     = 'C:/Users/rohan/player_season_with_forty_yard.csv'
-MATCH_LOG  = 'C:/Users/rohan/fuzzy_match_all_with_season7.csv'
+IR_CSV     = str(ROOT / "data/intermediate/injury_matching/ir_player_names_truncated.csv")
+PS_CSV     = str(ROOT / "data/intermediate/player_enrichment/player_season_with_forty_yard.csv")
+MATCH_LOG  = str(ROOT / "data/intermediate/injury_matching/fuzzy_match_all_with_season7.csv")
 
 # Parameters
 THRESHOLD = 85

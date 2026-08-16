@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # --- Step 1: Load files ---
-df = pd.read_csv("player_season_with_snaps.csv")
-snap_weekly = pd.read_csv("snap_weekly_full.csv")
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_snaps.csv"))
+snap_weekly = pd.read_csv(str(ROOT / "data/raw/snaps/snap_weekly_full.csv"))
 
 # --- Step 2: Identify unmatched player-season rows ---
 missing = df[df["total_snaps"].isna()].copy()

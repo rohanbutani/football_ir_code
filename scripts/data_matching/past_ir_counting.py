@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # File paths
-INPUT_PATH  = 'C:/Users/rohan/fuzzy_match_ir_past.csv'
-OUTPUT_PATH = 'C:/Users/rohan/fuzzy_match_ir_past_with_counts.csv'
+INPUT_PATH  = str(ROOT / "data/intermediate/injury_matching/fuzzy_match_ir_past.csv")
+OUTPUT_PATH = str(ROOT / "data/intermediate/injury_matching/fuzzy_match_ir_past_with_counts.csv")
 
 # Load the filtered data
 df = pd.read_csv(INPUT_PATH, dtype=str)

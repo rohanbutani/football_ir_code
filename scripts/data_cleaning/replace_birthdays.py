@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # --- Step 1: Load your uploaded file ---
-df = pd.read_csv('nextgen_with_teams_birthdates_and_travel.csv')
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/nextgen_with_teams_birthdates_and_travel.csv"))
 
 # --- Step 2: Drop the current birth_date column ---
 if 'birth_date' in df.columns:
@@ -25,6 +28,6 @@ df = pd.merge(
 df.drop(columns=['player_name'], inplace=True)
 
 # --- Step 6: Save the updated file ---
-df.to_csv('nextgen_with_teams_birthdates_and_travel_UPDATED.csv', index=False)
+df.to_csv(str(ROOT / "data/intermediate/player_enrichment/nextgen_with_teams_birthdates_and_travel_UPDATED.csv"), index=False)
 
-print("✅ Birthdates replaced and saved to 'nextgen_with_teams_birthdates_and_travel_UPDATED.csv'")
+print(f"✅ Birthdates replaced and saved to {ROOT / 'data/intermediate/player_enrichment/nextgen_with_teams_birthdates_and_travel_UPDATED.csv'}")

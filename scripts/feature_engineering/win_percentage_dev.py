@@ -1,3 +1,6 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
@@ -46,5 +49,5 @@ sos_win_pct = (
 )
 
 # === Step 5: Save or preview ===
-sos_win_pct.to_csv("sos_win_pct_2018_2024.csv", index=False)
+sos_win_pct.to_csv(str(ROOT / "data/raw/team_context/sos_win_pct_2018_2024.csv"), index=False)
 print("✅ Done. File saved as sos_win_pct_2018_2024.csv")

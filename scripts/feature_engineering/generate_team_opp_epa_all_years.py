@@ -1,3 +1,6 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
@@ -54,5 +57,5 @@ if __name__ == "__main__":
         all_sos.append(sos_df)
 
     combined_df = pd.concat(all_sos, ignore_index=True)
-    combined_df.to_csv("epa_sos_2018_2024.csv", index=False)
+    combined_df.to_csv(str(ROOT / "data/raw/team_context/epa_sos_2018_2024.csv"), index=False)
     print("✅ Done. File saved as epa_sos_2018_2024.csv")

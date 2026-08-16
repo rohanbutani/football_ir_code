@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # --- Step 1: Load your player-season dataset ---
-df = pd.read_csv("player_season_with_turf_percentage2.csv")
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_turf_percentage2.csv"))
 
 # --- Step 2: Extract seasons to query snap counts ---
 seasons = df["season"].unique().tolist()
@@ -30,9 +33,9 @@ if "player" in df.columns:
     df.drop(columns=["player"], inplace=True)
 
 # --- Step 7: Save updated dataset ---
-df.to_csv("player_season_with_snaps.csv", index=False)
+df.to_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_snaps.csv"), index=False)
 
 # --- Optional: Debug print ---
 matched = df["total_snaps"].notna().sum()
-print(f"✅ Total offensive snaps added and saved to 'player_season_with_snaps.csv'")
+print(f"✅ Total offensive snaps added and saved to {ROOT / 'data/intermediate/player_enrichment/player_season_with_snaps.csv'}")
 print(f"🔎 Snap counts matched for {matched} of {len(df)} player-seasons.")

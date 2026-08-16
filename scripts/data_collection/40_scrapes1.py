@@ -1,14 +1,17 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from sportsdataio import NFL
 
 # Concatenate per-year combine files
-files = glob.glob('combine_data/*_combine.csv')
+files = glob.glob(str(ROOT / 'data/raw/combine_speed/combine_data/*_combine.csv'))
 df_combine = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
 
 # Merge official combine times
-df_missing = pd.read_csv('Missing_40_Yard_Dash_Times.csv')
+df_missing = pd.read_csv(str(ROOT / "data/raw/combine_speed/Missing_40_Yard_Dash_Times.csv"))
 df = df_missing.merge(
     df_combine[['Player','DraftYear','FortyYardDash']],
     left_on=['name','draft_year'],
@@ -37,4 +40,4 @@ df['proday_40'] = df.apply(
 
 # Finalize by prioritizing sources
 df['final_40'] = df['combine_40'].fillna(df['api_40']).fillna(df['proday_40'])
-df.to_csv('filled_40_Yard_Dash_Times.csv', index=False)
+df.to_csv(str(ROOT / "data/intermediate/player_enrichment/filled_40_Yard_Dash_Times.csv"), index=False)

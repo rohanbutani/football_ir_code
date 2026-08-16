@@ -1,3 +1,6 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 from nfl_data_py import import_schedules
 
@@ -48,5 +51,5 @@ summary = team_games.groupby(['team', 'season'])['is_turf'].agg(['sum', 'count']
 summary['turf_game_pct'] = summary['sum'] / summary['count']
 
 # Save output
-summary[['team', 'season', 'turf_game_pct']].to_csv("turf_game_percentage_2018_2024.csv", index=False)
+summary[['team', 'season', 'turf_game_pct']].to_csv(str(ROOT / "data/raw/travel_surface/turf_game_percentage_2018_2024.csv"), index=False)
 print(summary[['team', 'season', 'turf_game_pct']].tail(10))

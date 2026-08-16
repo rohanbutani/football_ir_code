@@ -1,9 +1,12 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # File paths — adjust as needed
-PLAYER_SEASON_PATH = 'C:/Users/rohan/player_season_with_forty_dedup.csv'
-IR_COUNT_PATH      = 'C:/Users/rohan/fuzzy_match_ir_past_with_counts.csv'
-OUTPUT_PATH        = 'C:/Users/rohan/player_season_with_ir_count.csv'
+PLAYER_SEASON_PATH = str(ROOT / "data/intermediate/player_enrichment/player_season_with_forty_dedup.csv")
+IR_COUNT_PATH      = str(ROOT / "data/intermediate/injury_matching/fuzzy_match_ir_past_with_counts.csv")
+OUTPUT_PATH        = str(ROOT / "data/intermediate/player_enrichment/player_season_with_ir_count.csv")
 
 # Load datasets
 ps_df = pd.read_csv(PLAYER_SEASON_PATH, dtype=str)

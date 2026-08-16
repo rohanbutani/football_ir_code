@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # ─── FILE PATHS ───────────────────────────────────────────────────────────────
-INPUT_CSV  = 'C:/Users/rohan/FINAL_dataset.csv'
-OUTPUT_CSV = 'C:/Users/rohan/FINAL_dataset_with_position_encoded.csv'
+INPUT_CSV  = str(ROOT / "data/processed/final_datasets/FINAL_dataset.csv")
+OUTPUT_CSV = str(ROOT / "data/processed/final_datasets/FINAL_dataset_with_position_encoded.csv")
 
 # ─── LOAD DATA ────────────────────────────────────────────────────────────────
 df = pd.read_csv(INPUT_CSV)

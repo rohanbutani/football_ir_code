@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # --- Load main dataset ---
-df = pd.read_csv("player_season_with_epa_sos_age_height_weight_FINAL.csv")
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_weight_FINAL.csv"))
 df["playerName"] = df["playerName"].str.lower().str.strip()
 
 # --- Load Combine data with correct column ---
@@ -33,5 +36,5 @@ merged.loc[missing_mask, "forty"] = (
 )
 
 # --- Save final output ---
-merged.to_csv("player_season_with_forty_yard.csv", index=False)
-print("✅ 40-yard dash data merged and patched. Saved as 'player_season_with_forty_yard.csv'")
+merged.to_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_forty_yard.csv"), index=False)
+print(f"✅ 40-yard dash data merged and patched. Saved as {ROOT / 'data/intermediate/player_enrichment/player_season_with_forty_yard.csv'}")

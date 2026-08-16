@@ -1,9 +1,12 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data=pd.read_csv() #data path
+data=pd.read_csv(str(ROOT / "data/processed/final_datasets/final_data2.csv"))
 
 #KNN Imputation
 

@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # --- Load your dataset ---
-df = pd.read_csv("player_season_with_epa_sos_age_height_PATCHED.csv")
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_PATCHED.csv"))
 df["playerName"] = df["playerName"].str.lower().str.strip()
 
 # --- Pull roster data and standardize names ---
@@ -21,7 +24,7 @@ if not watson_match.empty and "height" in watson_match.columns:
     df.loc[df["playerName"] == "ben watson", "height"] = watson_height
 
     # --- Save updated file ---
-    df.to_csv("player_season_with_epa_sos_age_height_FINAL.csv", index=False)
-    print("✅ Patched 'ben watson' height and saved to 'player_season_with_epa_sos_age_height_FINAL.csv'")
+    df.to_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_FINAL.csv"), index=False)
+    print(f"✅ Patched 'ben watson' height and saved to {ROOT / 'data/intermediate/player_enrichment/player_season_with_epa_sos_age_height_FINAL.csv'}")
 else:
     print("❌ 'benjamin watson' not found in rosters or missing height value.")

@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 
 # Paths — adjust as needed
-INPUT_CSV  = 'C:/Users/rohan/fuzzy_match_all_with_season7_cleaned.csv'
-OUTPUT_CSV = 'C:/Users/rohan/fuzzy_match_season_ir_plus1.csv'
+INPUT_CSV  = str(ROOT / "data/intermediate/injury_matching/fuzzy_match_all_with_season7_cleaned.csv")
+OUTPUT_CSV = str(ROOT / "data/intermediate/injury_matching/fuzzy_match_season_ir_plus1.csv")
 
 # Load the data
 df = pd.read_csv(INPUT_CSV, dtype=str)

@@ -1,8 +1,11 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import pandas as pd
 import nfl_data_py as nfl
 
 # --- Step 1: Load your player-season-team-level data ---
-df = pd.read_csv("nextgen_with_teams_and_birthdates_deduped.csv")
+df = pd.read_csv(str(ROOT / "data/intermediate/player_enrichment/nextgen_with_teams_and_birthdates_deduped.csv"))
 
 # --- Step 2: Load schedule data from nfl_data_py ---
 seasons = df["season"].unique().tolist()
@@ -39,6 +42,6 @@ turf_pct = (
 df = df.merge(turf_pct, on=["team_abbr", "season"], how="left")
 
 # --- Step 7: Save result ---
-df.to_csv("player_season_with_turf_percentage2.csv", index=False)
+df.to_csv(str(ROOT / "data/intermediate/player_enrichment/player_season_with_turf_percentage2.csv"), index=False)
 
 print("✅ Done: Turf percentages added for each player-season-team.")

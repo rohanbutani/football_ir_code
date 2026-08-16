@@ -1,3 +1,6 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 import requests
 import pandas as pd
 
@@ -23,5 +26,5 @@ for year in range(2018, 2025):  # You can change this range if needed
 
 # Convert and export
 df = pd.DataFrame(all_data)
-df.to_csv("nfl_receiving_nextgen_2018_2024.csv", index=False)
+df.to_csv(str(ROOT / "data/raw/nextgen/nfl_receiving_nextgen_2018_2024.csv"), index=False)
 print("✅ Data exported to nfl_receiving_nextgen_2018_2024.csv")
